@@ -1,7 +1,10 @@
-window.onload = function() {
-    var audio = document.getElementById("meuAudio");
-    audio.play();
-}
+
+
+window.addEventListener("load", function() {
+  var audio = document.getElementById("meuAudio");
+  audio.loop = true; // Define que o áudio será reproduzido em loop
+  audio.volume = 0.2; // Ajusta o volume
+});
 
 
 
@@ -61,6 +64,14 @@ function handleClick() {
   
     if (document.querySelectorAll(".boxMatch").length === emojis.length) {
       alert("Você venceu !");
+      let resposta = prompt("Deseja tentar novamente? (Digite 'sim' ou 'não')").toLowerCase();
+      if (resposta === "sim") {
+        window.location.reload();
+      } else if (resposta === "não") {
+        alert("Obrigado por jogar!");
+      } else {
+        alert("Opção inválida. O jogo será encerrado.");
+      }
     }
   }
   
